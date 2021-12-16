@@ -11,6 +11,7 @@ SOURCES += \
         abstractfactory.cpp \
         classunit.cpp \
         cppclassunit.cpp \
+        cppfactory.cpp \
         cppmethodunit.cpp \
         cppprintoperatorunit.cpp \
         main.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     abstractfactory.h \
     classunit.h \
     cppclassunit.h \
+    cppfactory.h \
     cppmethodunit.h \
     cppprintoperatorunit.h \
     methodunit.h \

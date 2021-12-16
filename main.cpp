@@ -1,31 +1,30 @@
 #include <iostream>
-#include "cppclassunit.h"
-#include "cppmethodunit.h"
-#include "cppprintoperatorunit.h"
+#include "cppfactory.h"
 
-std::string generateProgram()
+std::string generateProgram(AbstractFactory *factory)
 {
-    CppClassUnit myClass("MyClass");
-    myClass.add(
-        std::make_shared<CppMethodUnit>("testFunc1", "void", 0),
+    auto myClass = factory->newClass("MyClass");
+    myClass->add(
+        factory->newMethod("testFunc1", "void", 0),
         AbstractClassUnit::AccessModifierPublic
     );
-    myClass.add(
-        std::make_shared<CppMethodUnit>("testFunc2", "void", AbstractMethodUnit::ModifierStatic),
+    myClass->add(
+        factory->newMethod("testFunc2", "void", AbstractMethodUnit::ModifierStatic),
         AbstractClassUnit::AccessModifierPrivate
     );
-    myClass.add(
-        std::make_shared<CppMethodUnit>("testFunc3", "void", AbstractMethodUnit::ModifierVirtual | AbstractMethodUnit::ModifierConst ),
+    myClass->add(
+        factory->newMethod("testFunc3", "void", AbstractMethodUnit::ModifierVirtual | AbstractMethodUnit::ModifierConst ),
         AbstractClassUnit::AccessModifierPublic
     );
-    auto method = std::make_shared<CppMethodUnit>("testFunc4", "void", AbstractMethodUnit::ModifierStatic);
-    method->add(std::make_shared<CppPrintOperatorUnit>(R"(Hello, world!\n)"), 0);
-    myClass.add(method, AbstractClassUnit::AccessModifierProtected);
-    return myClass.compile(0);
+    auto method = factory->newMethod("testFunc4", "void", AbstractMethodUnit::ModifierStatic);
+    method->add(factory->newPrintOperator(R"(Hello, world!\n)"), 0);
+    myClass->add(method, AbstractClassUnit::AccessModifierProtected);
+    return myClass->compile(0);
 }
 
 int main()
 {
-    std::cout << generateProgram() << std::endl;
+    CppFactory factory;
+    std::cout << generateProgram(&factory) << std::endl;
     return 0;
 }
