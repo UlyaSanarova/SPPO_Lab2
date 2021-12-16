@@ -4,7 +4,7 @@
 
 std::string generateProgram(AbstractFactory *factory)
 {
-    auto myClass = factory->newClass("MyClass", AbstractClassUnit::AccessModifierPublic);
+    auto myClass = factory->newClass("MyClass", AbstractClassUnit::AccessModifierDefault);
     myClass->add(
         factory->newMethod("testFunc1", "void", 0),
         AbstractClassUnit::AccessModifierPublic

@@ -6,7 +6,10 @@ CSClassUnit::CSClassUnit(const std::string &name, AbstractClassUnit::AccessModif
 
 std::string CSClassUnit::compile(unsigned int level) const
 {
-    std::string result = generateShift(level) + ACCESS_MODIFIERS[m_access] + " class " + m_name + " {\n";
+    std::string result = generateShift(level);
+    if (m_access != AccessModifierDefault)
+        result += ACCESS_MODIFIERS[m_access] + " ";
+    result += "class " + m_name + " {\n";
 
     for (size_t i = 0; i < ACCESS_MODIFIERS.size(); i++) {
         if (m_fields[i].empty())

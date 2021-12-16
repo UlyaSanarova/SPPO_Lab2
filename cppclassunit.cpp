@@ -1,7 +1,14 @@
 #include "cppclassunit.h"
 
-CppClassUnit::CppClassUnit(const std::string &name) : AbstractClassUnit(name, AbstractClassUnit::AccessModifierPublic)
+CppClassUnit::CppClassUnit(const std::string &name) : AbstractClassUnit(name, AbstractClassUnit::AccessModifierDefault)
 {
+}
+
+void CppClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags)
+{
+    if (flags == AbstractClassUnit::AccessModifierDefault)
+        flags = AbstractClassUnit::AccessModifierPrivate;
+    AbstractClassUnit::add(unit, flags);
 }
 
 std::string CppClassUnit::compile(unsigned int level) const

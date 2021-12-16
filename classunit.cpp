@@ -15,4 +15,4 @@ void AbstractClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags)
     m_fields[accessModifier].push_back(unit);
 }
 
-const std::vector<std::string> AbstractClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
+const std::vector<std::string> AbstractClassUnit::ACCESS_MODIFIERS = { "", "public", "protected", "private" };

@@ -9,6 +9,7 @@ class AbstractClassUnit : public Unit
 public:
     enum AccessModifier
     {
+        AccessModifierDefault,
         AccessModifierPublic,
         AccessModifierProtected,
         AccessModifierPrivate
