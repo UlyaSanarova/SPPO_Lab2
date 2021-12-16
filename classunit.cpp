@@ -9,7 +9,7 @@ AbstractClassUnit::AbstractClassUnit(const std::string &name, AbstractClassUnit:
 void AbstractClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags)
 {
     int accessModifier = AccessModifierPrivate;
-    if(flags < ACCESS_MODIFIERS.size()) {
+    if (flags < ACCESS_MODIFIERS.size()) {
         accessModifier = flags;
     }
     m_fields[accessModifier].push_back(unit);
