@@ -11,6 +11,7 @@ SOURCES += \
         classunit.cpp \
         main.cpp \
         methodunit.cpp \
+        printoperatorunit.cpp \
         unit.cpp
 
 # Default rules for deployment.
@@ -21,4 +22,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     classunit.h \
     methodunit.h \
+    printoperatorunit.h \
     unit.h
