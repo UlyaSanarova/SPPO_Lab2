@@ -1,24 +1,24 @@
 #include <iostream>
 #include "cppclassunit.h"
-#include "methodunit.h"
+#include "cppmethodunit.h"
 #include "printoperatorunit.h"
 
 std::string generateProgram()
 {
     CppClassUnit myClass("MyClass");
     myClass.add(
-        std::make_shared<MethodUnit>("testFunc1", "void", 0),
+        std::make_shared<CppMethodUnit>("testFunc1", "void", 0),
         AbstractClassUnit::AccessModifierPublic
     );
     myClass.add(
-        std::make_shared<MethodUnit>("testFunc2", "void", MethodUnit::ModifierStatic),
+        std::make_shared<CppMethodUnit>("testFunc2", "void", AbstractMethodUnit::ModifierStatic),
         AbstractClassUnit::AccessModifierPrivate
     );
     myClass.add(
-        std::make_shared<MethodUnit>("testFunc3", "void", MethodUnit::ModifierVirtual | MethodUnit::ModifierConst ),
+        std::make_shared<CppMethodUnit>("testFunc3", "void", AbstractMethodUnit::ModifierVirtual | AbstractMethodUnit::ModifierConst ),
         AbstractClassUnit::AccessModifierPublic
     );
-    auto method = std::make_shared<MethodUnit>("testFunc4", "void", MethodUnit::ModifierStatic);
+    auto method = std::make_shared<CppMethodUnit>("testFunc4", "void", AbstractMethodUnit::ModifierStatic);
     method->add(std::make_shared<PrintOperatorUnit>(R"(Hello, world!\n)"), 0);
     myClass.add(method, AbstractClassUnit::AccessModifierProtected);
     return myClass.compile(0);

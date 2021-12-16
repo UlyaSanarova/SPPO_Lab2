@@ -4,7 +4,7 @@
 #include "unit.h"
 #include <vector>
 
-class MethodUnit : public Unit
+class AbstractMethodUnit : public Unit
 {
 public:
     enum Modifier
@@ -14,13 +14,11 @@ public:
         ModifierVirtual = 1 << 2
     };
 
-    MethodUnit(const std::string &name, const std::string &returnType, Flags flags);
+    AbstractMethodUnit(const std::string &name, const std::string &returnType, Flags flags);
 
     void add(const std::shared_ptr<Unit> &unit, Flags flags) override;
 
-    std::string compile(unsigned int level) const override;
-
-private:
+protected:
     std::string m_name;
     std::string m_returnType;
     Flags m_flags;
