@@ -1,12 +1,12 @@
-#ifndef CPPFACTORY_H
-#define CPPFACTORY_H
+#ifndef JAVAFACTORY_H
+#define JAVAFACTORY_H
 
 #include "abstractfactory.h"
 
-class CppFactory : public AbstractFactory
+class JavaFactory : public AbstractFactory
 {
 public:
-    CppFactory();
+    JavaFactory();
 
     std::string getLanguage() const override;
 
@@ -27,4 +27,5 @@ public:
     ) const override;
 };
 
-#endif // CPPFACTORY_H
+
+#endif // JAVAFACTORY_H

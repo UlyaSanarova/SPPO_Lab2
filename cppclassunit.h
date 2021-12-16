@@ -6,7 +6,7 @@
 class CppClassUnit : public AbstractClassUnit
 {
 public:
-    explicit CppClassUnit(const std::string &name);
+    explicit CppClassUnit(const std::string &name, AbstractClassUnit::Modifier modifier);
 
     void add(const std::shared_ptr<Unit> &unit, Flags flags) override;
 

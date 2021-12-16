@@ -11,7 +11,8 @@ public:
     {
         ModifierStatic = 1,
         ModifierConst = 1 << 1,
-        ModifierVirtual = 1 << 2
+        ModifierVirtual = 1 << 2,
+        ModifierAbstract = 1 << 3,
     };
 
     AbstractMethodUnit(const std::string &name, const std::string &returnType, Flags flags);

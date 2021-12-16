@@ -1,7 +1,7 @@
 #include "classunit.h"
 
-AbstractClassUnit::AbstractClassUnit(const std::string &name, AbstractClassUnit::AccessModifier access) :
-    m_name(name), m_access(access)
+AbstractClassUnit::AbstractClassUnit(const std::string &name, AbstractClassUnit::AccessModifier access, AbstractClassUnit::Modifier modifier) :
+    m_name(name), m_access(access), m_modifier(modifier)
 {
     m_fields.resize(ACCESS_MODIFIERS.size());
 }

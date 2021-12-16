@@ -1,19 +1,22 @@
-#include "csclassunit.h"
+#include "javaclassunit.h"
 
-CSClassUnit::CSClassUnit(const std::string &name, AbstractClassUnit::AccessModifier access, AbstractClassUnit::Modifier modifier) :
+JavaClassUnit::JavaClassUnit(const std::string &name, AbstractClassUnit::AccessModifier access, AbstractClassUnit::Modifier modifier) :
     AbstractClassUnit(name, access, modifier)
 {
 }
 
-std::string CSClassUnit::compile(unsigned int level) const
+std::string JavaClassUnit::compile(unsigned int level) const
 {
     std::string result = generateShift(level);
     if (m_access != AccessModifierDefault)
         result += ACCESS_MODIFIERS[m_access] + " ";
     if (m_modifier & ModifierStatic)
         result += "static ";
-    if (m_modifier & ModifierAbstract)
+    if (m_modifier & ModifierAbstract) {
         result += "abstract ";
+    } else if (m_modifier & ModifierFinal) {
+        result += "final ";
+    }
     result += "class " + m_name + " {\n";
 
     for (size_t i = 0; i < ACCESS_MODIFIERS.size(); i++) {

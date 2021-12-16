@@ -6,7 +6,7 @@
 class CSClassUnit : public AbstractClassUnit
 {
 public:
-    explicit CSClassUnit(const std::string &name, AbstractClassUnit::AccessModifier access);
+    explicit CSClassUnit(const std::string &name, AbstractClassUnit::AccessModifier access, AbstractClassUnit::Modifier modifier);
 
     std::string compile(unsigned int level) const override;
 };
