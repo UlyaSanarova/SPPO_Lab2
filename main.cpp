@@ -36,7 +36,11 @@ int main()
 
     for (const auto &factory : factories) {
         std::cout << "<Generating for " << factory->getLanguage() << ">" << std::endl;
-        std::cout << generateProgram(factory) << std::endl;
+        try {
+            std::cout << generateProgram(factory) << std::endl;
+        }  catch (const std::exception &err) {
+            std::cout << "error: " << err.what() << std::endl;
+        }
     }
 
     return 0;
