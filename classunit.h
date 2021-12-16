@@ -4,7 +4,7 @@
 #include "unit.h"
 #include <vector>
 
-class ClassUnit : public Unit
+class AbstractClassUnit : public Unit
 {
 public:
     enum AccessModifier
@@ -16,13 +16,11 @@ public:
 
     static const std::vector<std::string> ACCESS_MODIFIERS;
 
-    explicit ClassUnit(const std::string &name);
+    explicit AbstractClassUnit(const std::string &name);
 
     void add(const std::shared_ptr<Unit> &unit, Flags flags) override;
 
-    std::string compile(unsigned int level) const override;
-
-private:
+protected:
     std::string m_name;
     using Fields = std::vector<std::shared_ptr<Unit>>;
     std::vector<Fields> m_fields;
