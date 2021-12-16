@@ -1,7 +1,7 @@
 #include <iostream>
 #include "cppclassunit.h"
 #include "cppmethodunit.h"
-#include "printoperatorunit.h"
+#include "cppprintoperatorunit.h"
 
 std::string generateProgram()
 {
@@ -19,7 +19,7 @@ std::string generateProgram()
         AbstractClassUnit::AccessModifierPublic
     );
     auto method = std::make_shared<CppMethodUnit>("testFunc4", "void", AbstractMethodUnit::ModifierStatic);
-    method->add(std::make_shared<PrintOperatorUnit>(R"(Hello, world!\n)"), 0);
+    method->add(std::make_shared<CppPrintOperatorUnit>(R"(Hello, world!\n)"), 0);
     myClass.add(method, AbstractClassUnit::AccessModifierProtected);
     return myClass.compile(0);
 }

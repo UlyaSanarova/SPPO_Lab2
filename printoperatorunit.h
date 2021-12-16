@@ -3,14 +3,12 @@
 
 #include "unit.h"
 
-class PrintOperatorUnit : public Unit
+class AbstractPrintOperatorUnit : public Unit
 {
 public:
-    PrintOperatorUnit(const std::string &text);
+    AbstractPrintOperatorUnit(const std::string &text);
 
-    std::string compile(unsigned int level) const override;
-
-private:
+protected:
     std::string m_text;
 };
 

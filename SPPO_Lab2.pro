@@ -11,6 +11,7 @@ SOURCES += \
         classunit.cpp \
         cppclassunit.cpp \
         cppmethodunit.cpp \
+        cppprintoperatorunit.cpp \
         main.cpp \
         methodunit.cpp \
         printoperatorunit.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     classunit.h \
     cppclassunit.h \
     cppmethodunit.h \
+    cppprintoperatorunit.h \
     methodunit.h \
     printoperatorunit.h \
     unit.h
