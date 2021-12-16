@@ -14,6 +14,10 @@ SOURCES += \
         cppfactory.cpp \
         cppmethodunit.cpp \
         cppprintoperatorunit.cpp \
+        csclassunit.cpp \
+        csfactory.cpp \
+        csmethodunit.cpp \
+        csprintoperatorunit.cpp \
         main.cpp \
         methodunit.cpp \
         printoperatorunit.cpp \
@@ -31,6 +35,10 @@ HEADERS += \
     cppfactory.h \
     cppmethodunit.h \
     cppprintoperatorunit.h \
+    csclassunit.h \
+    csfactory.h \
+    csmethodunit.h \
+    csprintoperatorunit.h \
     methodunit.h \
     printoperatorunit.h \
     unit.h

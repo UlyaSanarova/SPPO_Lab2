@@ -1,9 +1,10 @@
 #include <iostream>
 #include "cppfactory.h"
+#include "csfactory.h"
 
 std::string generateProgram(AbstractFactory *factory)
 {
-    auto myClass = factory->newClass("MyClass");
+    auto myClass = factory->newClass("MyClass", AbstractClassUnit::AccessModifierPublic);
     myClass->add(
         factory->newMethod("testFunc1", "void", 0),
         AbstractClassUnit::AccessModifierPublic
@@ -24,7 +25,16 @@ std::string generateProgram(AbstractFactory *factory)
 
 int main()
 {
-    CppFactory factory;
-    std::cout << generateProgram(&factory) << std::endl;
+    std::vector<AbstractFactory*> factories;
+    CppFactory cppFactory;
+    CSFactory csFactory;
+    factories.push_back(&cppFactory);
+    factories.push_back(&csFactory);
+
+    for (const auto &factory : factories) {
+        std::cout << "<Generating for " << factory->getLanguage() << ">" << std::endl;
+        std::cout << generateProgram(factory) << std::endl;
+    }
+
     return 0;
 }

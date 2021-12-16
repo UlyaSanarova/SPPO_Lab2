@@ -12,7 +12,7 @@ std::string CppFactory::getLanguage() const
     return "C++";
 }
 
-std::shared_ptr<AbstractClassUnit> CppFactory::newClass(const std::string &name) const
+std::shared_ptr<AbstractClassUnit> CppFactory::newClass(const std::string &name, AbstractClassUnit::AccessModifier access) const
 {
     return std::make_shared<CppClassUnit>(name);
 }

@@ -1,12 +1,12 @@
-#ifndef CPPFACTORY_H
-#define CPPFACTORY_H
+#ifndef CSFACTORY_H
+#define CSFACTORY_H
 
 #include "abstractfactory.h"
 
-class CppFactory : public AbstractFactory
+class CSFactory : public AbstractFactory
 {
 public:
-    CppFactory();
+    CSFactory();
 
     std::string getLanguage() const override;
 
@@ -17,4 +17,4 @@ public:
     std::shared_ptr<AbstractPrintOperatorUnit> newPrintOperator(const std::string &text) const override;
 };
 
-#endif // CPPFACTORY_H
+#endif // CSFACTORY_H

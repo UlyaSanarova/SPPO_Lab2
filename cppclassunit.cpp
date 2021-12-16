@@ -1,6 +1,6 @@
 #include "cppclassunit.h"
 
-CppClassUnit::CppClassUnit(const std::string &name) : AbstractClassUnit(name)
+CppClassUnit::CppClassUnit(const std::string &name) : AbstractClassUnit(name, AbstractClassUnit::AccessModifierPublic)
 {
 }
 
